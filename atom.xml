@@ -3,11 +3,11 @@
   <title>Millerchx碎碎念</title>
   
   
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/atom.xml" rel="self"/>
   
-  <link href="http://roymiller.me/"/>
+  <link href="hhttp://yoursite.com/"/>
   <updated>2018-02-08T14:54:27.023Z</updated>
-  <id>http://roymiller.me/</id>
+  <id>hhttp://yoursite.com/</id>
   
   <author>
     <name>Roy Miller</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://roymiller.me/2018/02/08/hello-world/"/>
-    <id>http://roymiller.me/2018/02/08/hello-world/</id>
+    <link href="hhttp://yoursite.com/2018/02/08/hello-world/"/>
+    <id>hhttp://yoursite.com/2018/02/08/hello-world/</id>
     <published>2018-02-08T14:54:27.023Z</published>
     <updated>2018-02-08T14:54:27.023Z</updated>
     
