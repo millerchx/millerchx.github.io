@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="hhttp://yoursite.com/"/>
-  <updated>2018-02-08T17:17:14.376Z</updated>
+  <updated>2018-02-11T16:34:07.606Z</updated>
   <id>hhttp://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《社交网络》</title>
+    <link href="hhttp://yoursite.com/2018/02/11/the-social-network/"/>
+    <id>hhttp://yoursite.com/2018/02/11/the-social-network/</id>
+    <published>2018-02-11T15:49:04.167Z</published>
+    <updated>2018-02-11T16:34:07.606Z</updated>
+    
+    <content type="html"><![CDATA[<p>我知道《社交网络》这部电影是因为一次搜索。2011年的一天我在《读者》杂志上看到一张名字貌似叫社交网络中的自拍还是什么的，我觉得挺有意思的就去搜索了一下，发现《社交网络》是一部电影，和那张图片没有任何关系。然后我就去看了一下这部看上去还很有意思的电影。我记得当时还是用快播看的，现在快播的王欣都已经出狱了。</p><p>我还清晰地记得我第一次看这部电影的感觉，那就是Coooooool。原来世界上还有这么cool的事情，从一开始Zuckburg回宿舍开始hacking，到在艺术课上写theFacebook的code，一切都是这么有趣这么酷。看完我就觉得，以后要成为像他那样的人，用技术改变世界，创造价值（其实就是做大事挣大钱）。从那以后，这部电影就成为我身上的烙印，那以后的七年，我的很多做法想法都有那部电影的影子。</p><p>后来，我又看了大概十几遍《社交网络》。我都觉得这部电影有点像是我的行事准则了，以至于每次我意志不坚定，不知道何去何从的时候，都会打开这部电影。不过有趣的是，这么几年以来我并没有成为像Zuckburg那样的Coder，甚至连一个Coder都算不上。原因也很明显呀，那就是懒。我记得初三毕业那个暑假我就想学Java和C，但是到现在我也没学Java（C是大学以后学的），或者说Java只学了一点点东西，比如printf。。。</p><p>今天，我又看了一遍《社交网络》，我希望我能真正去做一些cool的事情。</p><blockquote><p>—— A million dollars isn’t cool. You know what’s cool？<br>—— You？<br>—— A billion dollars.</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我知道《社交网络》这部电影是因为一次搜索。2011年的一天我在《读者》杂志上看到一张名字貌似叫社交网络中的自拍还是什么的，我觉得挺有意思的就去搜索了一下，发现《社交网络》是一部电影，和那张图片没有任何关系。然后我就去看了一下这部看上去还很有意思的电影。我记得当时还是用快播看
+      
+    
+    </summary>
+    
+      <category term="碎碎念" scheme="hhttp://yoursite.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+      <category term="碎碎念" scheme="hhttp://yoursite.com/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+      <category term="生活" scheme="hhttp://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
