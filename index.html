@@ -275,6 +275,249 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="hhttp://yoursite.com/2018/05/15/最近目标/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roy Miller">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Millerchx碎碎念">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/15/最近目标/" itemprop="url">最近目标</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T01:43:22+08:00">
+                2018-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>线性表例题</h1>
+
+<h2>翻转单链表</h2>
+
+<p>递归版：</p>
+
+<pre><code>LNode* turn(LNode *H){
+    if(H-&gt;next == NULL &amp;&amp; H == NULL)
+        return H;
+    LNode *newH = turn(H-&gt;next);
+    H-&gt;next-&gt;next = H;
+    H-&gt;next = NULL;
+    return newH;
+}
+
+</code></pre>
+
+<h2>元素二分</h2>
+
+<p>有一个顺序表L，其元素为整形数据，设计一个算法，将L中所有小于表头元素的整数放在前半部分，大于表头元素的整数放在后半部分。</p>
+
+<p>本题的解决方法为：先将L的第一个元素存于变量temp中，然后定义两个整型变量<strong>i</strong>和<strong>j</strong>。<strong>i</strong>从左往右扫描，<strong>j</strong>从右往左扫描，边扫描边交换；</p>
+
+<pre><code>void move(SqList &amp;L)
+{
+    int temp;
+    int i = 0, j = L.length -  1;
+    temp = L.data[0];
+    while(i &lt; j)
+    {
+        while(i &lt; j &amp;&amp; L.data[j] &gt; temp)
+                —-j;
+        if(i &lt; j)
+        {
+            L.data[i] = L.data[j];
+            ++i;
+        }
+        while(i &lt; j &amp;&amp; L.data[i] &lt; temp)
+            ++i;
+        if(i &lt; j)
+        {
+            L.data[i] = L.data[j];
+            —-j;        
+        }
+
+    } 
+    L.data[i] = temp;
+}
+</code></pre>
+
+<p><strong>注意</strong>：每走一步都要判断<strong>i</strong>是否小于<strong>j</strong>。</p>
+
+<h2>倒数第k个结点</h2>
+
+<p>假设该链表只给出了头指针head。在不改变链表的前提下，请设计一个尽可能高效的算法，查找链表中倒数第k（k为正整数）个结点上的节点。若查找成功，算法输出该结点的data值，并返回1；否则，只返回0。</p>
+
+<pre><code>int findelem(LNode* head, int k){
+    p1 = head-&gt;next;
+    p = head;
+    i = 1;
+    while(p != NULL){
+        p1 = p-&gt;next;
+        ++i;
+        if(i &gt; k)
+            p = p-&gt;next;
+    }
+    if(p = head)
+        return 0;
+    else{
+        cout&lt;&lt;p-&gt;data;
+        return 1;
+    }
+}
+</code></pre>
+
+<h2>左移p个位置</h2>
+
+<p>设将n（n&gt;1）个整数存放到一维数组R中，设计一个算法，将R中的序列循环左移p（0&lt;p&lt;n）个位置。</p>
+
+<pre><code>void Reverse(int R[], int l, int r){
+    int i,j;
+    int temp;
+    for(i = 1, j = r; i &lt; j; ++i, --j){
+        temp = R[i];
+        R[i] = R[j];
+        R[j] = temp;
+    }
+}
+
+void RCR(int R[], int n, int p){
+    if(p &lt;= 0 || p &gt;= n)
+        cout&lt;&lt;&quot;ERROR&quot;&lt;&lt;endl;
+    else{
+        Reverse(R, 0, p - 1);
+        Reverse(R, p, n-1);
+        Reverse(R, 0, n-1);
+    }
+}</code></pre>
+
+
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="hhttp://yoursite.com/2018/02/11/the-social-network/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -598,7 +841,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -609,7 +852,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -620,7 +863,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

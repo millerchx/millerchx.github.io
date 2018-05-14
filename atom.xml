@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="hhttp://yoursite.com/"/>
-  <updated>2018-02-11T16:34:07.606Z</updated>
+  <updated>2018-05-14T17:47:12.200Z</updated>
   <id>hhttp://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最近目标</title>
+    <link href="hhttp://yoursite.com/2018/05/15/%E6%9C%80%E8%BF%91%E7%9B%AE%E6%A0%87/"/>
+    <id>hhttp://yoursite.com/2018/05/15/最近目标/</id>
+    <published>2018-05-14T17:43:22.000Z</published>
+    <updated>2018-05-14T17:47:12.200Z</updated>
+    
+    <content type="html"><![CDATA[<h1>线性表例题</h1><h2>翻转单链表</h2><p>递归版：</p><pre><code>LNode* turn(LNode *H){    if(H-&gt;next == NULL &amp;&amp; H == NULL)        return H;    LNode *newH = turn(H-&gt;next);    H-&gt;next-&gt;next = H;    H-&gt;next = NULL;    return newH;}</code></pre><h2>元素二分</h2><p>有一个顺序表L，其元素为整形数据，设计一个算法，将L中所有小于表头元素的整数放在前半部分，大于表头元素的整数放在后半部分。</p><p>本题的解决方法为：先将L的第一个元素存于变量temp中，然后定义两个整型变量<strong>i</strong>和<strong>j</strong>。<strong>i</strong>从左往右扫描，<strong>j</strong>从右往左扫描，边扫描边交换；</p><pre><code>void move(SqList &amp;L){    int temp;    int i = 0, j = L.length -  1;    temp = L.data[0];    while(i &lt; j)    {        while(i &lt; j &amp;&amp; L.data[j] &gt; temp)                —-j;        if(i &lt; j)        {            L.data[i] = L.data[j];            ++i;        }        while(i &lt; j &amp;&amp; L.data[i] &lt; temp)            ++i;        if(i &lt; j)        {            L.data[i] = L.data[j];            —-j;                }    }     L.data[i] = temp;}</code></pre><p><strong>注意</strong>：每走一步都要判断<strong>i</strong>是否小于<strong>j</strong>。</p><h2>倒数第k个结点</h2><p>假设该链表只给出了头指针head。在不改变链表的前提下，请设计一个尽可能高效的算法，查找链表中倒数第k（k为正整数）个结点上的节点。若查找成功，算法输出该结点的data值，并返回1；否则，只返回0。</p><pre><code>int findelem(LNode* head, int k){    p1 = head-&gt;next;    p = head;    i = 1;    while(p != NULL){        p1 = p-&gt;next;        ++i;        if(i &gt; k)            p = p-&gt;next;    }    if(p = head)        return 0;    else{        cout&lt;&lt;p-&gt;data;        return 1;    }}</code></pre><h2>左移p个位置</h2><p>设将n（n&gt;1）个整数存放到一维数组R中，设计一个算法，将R中的序列循环左移p（0&lt;p&lt;n）个位置。</p><pre><code>void Reverse(int R[], int l, int r){    int i,j;    int temp;    for(i = 1, j = r; i &lt; j; ++i, --j){        temp = R[i];        R[i] = R[j];        R[j] = temp;    }}void RCR(int R[], int n, int p){    if(p &lt;= 0 || p &gt;= n)        cout&lt;&lt;&quot;ERROR&quot;&lt;&lt;endl;    else{        Reverse(R, 0, p - 1);        Reverse(R, p, n-1);        Reverse(R, 0, n-1);    }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1&gt;线性表例题&lt;/h1&gt;
+
+&lt;h2&gt;翻转单链表&lt;/h2&gt;
+
+&lt;p&gt;递归版：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;LNode* turn(LNode *H){
+    if(H-&amp;gt;next == NULL &amp;amp;&amp;amp; H == NULL)
+        retur
+      
+    
+    </summary>
+    
+      <category term="数据结构" scheme="hhttp://yoursite.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="-线性表" scheme="hhttp://yoursite.com/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>《社交网络》</title>
