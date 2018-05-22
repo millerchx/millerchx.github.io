@@ -275,6 +275,209 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="hhttp://yoursite.com/2018/05/15/stack-and-queue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roy Miller">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Millerchx碎碎念">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/15/stack-and-queue/" itemprop="url">stack and queue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-15T17:41:57+08:00">
+                2018-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/栈和队列/" itemprop="url" rel="index">
+                    <span itemprop="name">-栈和队列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>栈和队列</h1>
+
+<h2>栈和队列的概念</h2>
+
+<ol><br>    <li>栈是一种只能在一端进行插入或删除操作的的线性表。<br><br>        <ol><br>            <li>分为顺序栈和链式栈<br><br>                <ol><br>                    <li>主要特点是先进后出</li><br>                </ol></li><br>        </ol></li><br>    <li>队列是一种受限的线性表<br><br>        <ol><br>            <li>可进行插入的一端成为队头，可进行插入的一端称为队尾<br><br>                <ol><br>                    <li>先进先出</li><br>                    <li>分为顺序队和链队两种</li><br>                </ol></li><br>        </ol></li><br></ol>
+
+<h2>栈和队列的存储结构、算法与应用</h2>
+
+<h3>结构体定义</h3>
+
+<ol><br>    <li>顺序栈的定义</li><br></ol>
+
+<pre><code>typedef struct{
+    int data[maxSize];
+    int top;
+}SqStack;
+</code></pre>
+
+<ol><br>    <li>链栈的定义</li><br></ol>
+
+<pre><code>typedef struct LNode{
+    int data;
+    struct LNode *next;
+ }LNode;
+
+</code></pre>
+
+<ol><br>    <li>顺序队列定义</li><br></ol>
+
+<pre><code>typedef struct{
+    int data[maxSize];
+    int front;
+    int  rear;
+}SqQueue;
+</code></pre>
+
+<ol><br>    <li>链队定义<br><br>        <ol><br>            <li>队结点类型定义</li><br>        </ol></li><br></ol>
+
+<pre><code>typedef struct{
+    QNode *front;
+    QNode *rear;
+}LiQueue;
+</code></pre>
+
+<ol><br>    <li>链队类型定义</li><br></ol>
+
+<pre><code>typedef struct{
+    QNode *front;  
+    QNode *rear;
+}LiQueue;
+
+</code></pre>
+
+<h3>顺序栈</h3>
+
+<ol><br>    <li>几个状态<br><br>        <ol><br>            <li>栈空状态：<code>st.top == -1</code></li><br>            <li>栈满状态：<code>st.top == maxSize - 1</code>, 因为数组下标从0号开始。</li><br>            <li>非法状态：栈满就是一种继续入栈就会<strong>上溢</strong>的状态，对应的栈<strong>下溢</strong>就是栈空的时候继续出栈所造成的结果。</li><br>        </ol></li><br>    <li>两个操作<br><br>        <ol><br>            <li>元素x进栈操作：<code>++(st.top); st.data[st.top] = x</code> </li><br>            <li>元素x出栈操作：<code>x = st.data[st.top], –(st.top)</code></li><br>        </ol></li><br>    <li>初始化栈的代码<br><br>        <p>初始化一个栈，只需要将栈顶指针置为-1即可。</p><br><br>        <pre><code>void initStack(SqStack st){<br>            st.top = -1;<br>        }<br>        </code></pre></li><br>    <li>判断栈空代码<br><br>        <p>栈空的时候返回1，否则返回0。</p><br><br>        <pre><code>int isEmpty(SqStack st){<br>            if(st.top == -1)<br>                return 1;<br>            else<br>                return 0;<br>        }<br>        </code></pre></li><br>    <li>进栈代码<br><br>        <pre><code>int push(SqStack &amp;st, int x){<br>            if(st.top == maxSize - 1)<br>                return 0;<br>            ++(st.top);<br>            st.data[st.top] = x;<br>                return 1;<br>        }<br>        </code></pre></li><br>    <li>出栈代码<br><br>        <pre><code>int pop(SqStack &amp;st, int &amp;x){<br>            if(st.top == -1)<br>                return 0;<br>            x = st.data[st.top];<br>            –(st.top);<br>            return 1;<br>        }<br>        </code></pre></li><br></ol>
+
+<blockquote><br><p>在考试中，栈常常作为一个工具来解决其他问题，因此一般情况下，栈的定义及操作可以写的很简单，不必调用以上函数，上述函数只作为标准操作来参考，使用价值并不高。</p><br></blockquote>
+
+<ol><br>    <li>考题中比较实用的栈的操作的写法如下：<br><br>        <pre><code>int stack[maxSize];<br>        int top = -1;<br>        </code></pre><br><br>        <p>进栈</p><br><br>        <pre><code>stack[++top] = x;<br>        </code></pre><br><br>        <p>出栈</p><br><br>        <pre><code>x = stack[top–];<br>        </code></pre></li><br></ol>
+
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="hhttp://yoursite.com/2018/05/15/最近目标/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -330,7 +533,7 @@
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
+                    <span itemprop="name">-数据结构</span>
                   </a>
                 </span>
 
@@ -470,6 +673,154 @@ void RCR(int R[], int n, int p){
 
 
 
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="hhttp://yoursite.com/2018/02/11/the-social-network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roy Miller">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Millerchx碎碎念">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/11/the-social-network/" itemprop="url">《社交网络》</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-11T23:49:04+08:00">
+                2018-02-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/碎碎念/" itemprop="url" rel="index">
+                    <span itemprop="name">-碎碎念</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我知道《社交网络》这部电影是因为一次搜索。2011年的一天我在《读者》杂志上看到一张名字貌似叫社交网络中的自拍还是什么的，我觉得挺有意思的就去搜索了一下，发现《社交网络》是一部电影，和那张图片没有任何关系。然后我就去看了一下这部看上去还很有意思的电影。我记得当时还是用快播看的，现在快播的王欣都已经出狱了。</p>
+<p>我还清晰地记得我第一次看这部电影的感觉，那就是Coooooool。原来世界上还有这么cool的事情，从一开始Zuckburg回宿舍开始hacking，到在艺术课上写theFacebook的code，一切都是这么有趣这么酷。看完我就觉得，以后要成为像他那样的人，用技术改变世界，创造价值（其实就是做大事挣大钱）。从那以后，这部电影就成为我身上的烙印，那以后的七年，我的很多做法想法都有那部电影的影子。</p>
+<p>后来，我又看了大概十几遍《社交网络》。我都觉得这部电影有点像是我的行事准则了，以至于每次我意志不坚定，不知道何去何从的时候，都会打开这部电影。不过有趣的是，这么几年以来我并没有成为像Zuckburg那样的Coder，甚至连一个Coder都算不上。原因也很明显呀，那就是懒。我记得初三毕业那个暑假我就想学Java和C，但是到现在我也没学Java（C是大学以后学的），或者说Java只学了一点点东西，比如printf。。。</p>
+<p>今天，我又看了一遍《社交网络》，我希望我能真正去做一些cool的事情。</p>
+<blockquote>
+<p>—— A million dollars isn’t cool. You know what’s cool？<br>—— You？<br>—— A billion dollars.</p>
+</blockquote>
 
           
         
@@ -693,7 +1044,7 @@ void RCR(int R[], int n, int p){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -704,7 +1055,7 @@ void RCR(int R[], int n, int p){
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -715,7 +1066,7 @@ void RCR(int R[], int n, int p){
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
